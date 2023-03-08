@@ -1,14 +1,17 @@
 {
-  "name": "xpath",
-  "version": "0.0.32",
-  "description": "DOM 3 XPath implemention and helper for node.js and the web",
+  "name": "xpath-next",
+  "version": "0.0.33",
+  "description": "DOM 3 XPath implemention and helper for Node.js and the web",
   "engines": {
-    "node": ">=0.6.0"
+    "node": ">=18.15.0"
   },
   "author": {
     "name": "Cameron McCormack"
   },
   "contributors": [
+    {
+      "name": "NikhilVerma"
+    },
     {
       "name": "goto100"
     },
@@ -18,6 +21,7 @@
   ],
   "devDependencies": {
     "mocha": "^9.0.2",
+    "prettier": "^2.8.4",
     "xmldom": "^0.6.0"
   },
   "typings": "./xpath.d.ts",
@@ -26,7 +30,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/goto100/xpath.git"
+    "url": "https://github.com/NikhilVerma/xpath-next.git"
   },
   "main": "./xpath.js",
   "keywords": [

@@ -1,3 +1,5 @@
 # .npmignore file
 tests/
 *.test.js
+docs/
+.vscode
