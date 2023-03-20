@@ -1947,24 +1947,15 @@ PathExpr.applyStep = function (step, xpc, node) {
 			// look at all descendant nodes
 			var st = [xpc.contextNode.firstChild];
 
+			if (xpc.contextNode.shadowRoot?.firstChild != null) {
+				st.push(xpc.contextNode.shadowRoot.firstChild);
+			}
+
 			while (st.length > 0) {
 				for (var m = st.pop(); m != null; ) {
 					if (step.nodeTest.matches(m, xpc)) {
 						newNodes.push(m);
 					}
-
-					// if (m.shadowRoot) {
-					// 	for (var m = m.shadowRoot.firstChild; m != null; m = m.nextSibling) {
-					// 		if (step.nodeTest.matches(m, xpc)) {
-					// 			newNodes.push(m);
-					// 		}
-					// 	}
-					// }
-
-					// Shadow root is it's own kind of node, so we need to check for it's children
-					// if (m.shadowRoot) {
-					// 	st = st.concat(this.applyStep(step, xpc, m.shadowRoot));
-					// }
 
 					if (m.shadowRoot?.firstChild != null) {
 						st.push(m.shadowRoot.firstChild);
