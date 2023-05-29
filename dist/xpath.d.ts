@@ -321,13 +321,6 @@ declare class XNodeSet extends Expression {
     tree: any;
     nodes: any[];
     size: number;
-    static compareWith: any;
-    equals: any;
-    notequal: any;
-    lessthan: any;
-    greaterthan: any;
-    lessthanorequal: any;
-    greaterthanorequal: any;
     constructor();
     init(): void;
     toString(): string;
@@ -353,6 +346,13 @@ declare class XNodeSet extends Expression {
     compareWithBoolean(r: any, o: any): any;
     compareWithNodeSet(r: any, o: any): any;
     union(r: any): XNodeSet;
+    static compareWith: () => any;
+    equals: any;
+    notequal: any;
+    lessthan: any;
+    greaterthan: any;
+    lessthanorequal: any;
+    greaterthanorequal: any;
 }
 declare class XPathContext {
     variableResolver: any;

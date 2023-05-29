@@ -2650,13 +2650,6 @@ class XNodeSet extends Expression {
     tree;
     nodes;
     size;
-    static compareWith;
-    equals;
-    notequal;
-    lessthan;
-    greaterthan;
-    lessthanorequal;
-    greaterthanorequal;
     constructor() {
         super();
         this.init();
@@ -2821,25 +2814,31 @@ class XNodeSet extends Expression {
         ns.addArray(r.toUnsortedArray());
         return ns;
     }
+    static compareWith = curry(function (o, r) {
+        if (instance_of(r, XString)) {
+            return this.compareWithString(r, o);
+        }
+        if (instance_of(r, XNumber)) {
+            return this.compareWithNumber(r, o);
+        }
+        if (instance_of(r, XBoolean)) {
+            return this.compareWithBoolean(r, o);
+        }
+        return this.compareWithNodeSet(r, o);
+    });
+    //@ts-expect-error
+    equals = XNodeSet.compareWith(equals);
+    //@ts-expect-error
+    notequal = XNodeSet.compareWith(notequal);
+    //@ts-expect-error
+    lessthan = XNodeSet.compareWith(lessthan);
+    //@ts-expect-error
+    greaterthan = XNodeSet.compareWith(greaterthan);
+    //@ts-expect-error
+    lessthanorequal = XNodeSet.compareWith(lessthanorequal);
+    //@ts-expect-error
+    greaterthanorequal = XNodeSet.compareWith(greaterthanorequal);
 }
-XNodeSet.compareWith = curry(function (o, r) {
-    if (instance_of(r, XString)) {
-        return this.compareWithString(r, o);
-    }
-    if (instance_of(r, XNumber)) {
-        return this.compareWithNumber(r, o);
-    }
-    if (instance_of(r, XBoolean)) {
-        return this.compareWithBoolean(r, o);
-    }
-    return this.compareWithNodeSet(r, o);
-});
-XNodeSet.prototype.equals = XNodeSet.compareWith(equals);
-XNodeSet.prototype.notequal = XNodeSet.compareWith(notequal);
-XNodeSet.prototype.lessthan = XNodeSet.compareWith(lessthan);
-XNodeSet.prototype.greaterthan = XNodeSet.compareWith(greaterthan);
-XNodeSet.prototype.lessthanorequal = XNodeSet.compareWith(lessthanorequal);
-XNodeSet.prototype.greaterthanorequal = XNodeSet.compareWith(greaterthanorequal);
 // XPathContext //////////////////////////////////////////////////////////////
 class XPathContext {
     variableResolver;

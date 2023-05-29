@@ -1,6 +1,6 @@
 {
   "name": "xpath-next",
-  "version": "0.0.37",
+  "version": "0.0.38",
   "description": "DOM 3 XPath implemention and helper for Node.js and the web",
   "engines": {
     "node": ">=18.15.0"
