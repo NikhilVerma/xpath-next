@@ -1,6 +1,6 @@
 {
   "name": "xpath-next",
-  "version": "0.0.36",
+  "version": "0.0.37",
   "description": "DOM 3 XPath implemention and helper for Node.js and the web",
   "engines": {
     "node": ">=18.15.0"
@@ -25,15 +25,16 @@
     "typescript": "^5.0.4",
     "xmldom": "^0.6.0"
   },
-  "typings": "./xpath.d.ts",
+  "typings": "./dist/xpath.d.ts",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "prepublishOnly": "rm -rf dist && tsc"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/NikhilVerma/xpath-next.git"
   },
-  "main": "./xpath.js",
+  "main": "./dist/xpath.js",
   "keywords": [
     "xpath",
     "xml"

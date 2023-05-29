@@ -1,4 +1,4 @@
-const xpath = require("./xpath.js");
+const xpath = require("./dist/xpath.js");
 const dom = require("xmldom").DOMParser;
 const assert = require("assert");
 
