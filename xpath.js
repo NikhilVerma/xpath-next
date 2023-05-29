@@ -3174,11 +3174,14 @@ XNodeSet.prototype.init = function () {
 };
 
 XNodeSet.prototype.toString = function () {
-	const p = this.first();
-	if (p == null) {
-		return "";
-	}
-	return this.stringForNode(p);
+	// See CHANGELOG.md (0.0.35)
+	// const p = this.first();
+	// if (p == null) {
+	// 	return "";
+	// }
+	// return this.stringForNode(p);
+
+	return this.nodes.map((node) => this.stringForNode(node)).join(" ");
 };
 
 XNodeSet.prototype.evaluate = function (c) {
