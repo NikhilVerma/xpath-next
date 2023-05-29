@@ -267,8 +267,8 @@ declare class XString extends Expression {
     greaterthanorequal(r: any): any;
 }
 declare class XNumber extends Expression {
-    numberFormat: RegExp;
     num: number;
+    numberFormat: RegExp;
     constructor(n: any);
     init(n: any): void;
     parse(s: any): number;

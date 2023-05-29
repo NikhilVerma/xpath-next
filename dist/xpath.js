@@ -2229,14 +2229,13 @@ class XString extends Expression {
 }
 // XNumber ///////////////////////////////////////////////////////////////////
 class XNumber extends Expression {
-    numberFormat;
     num;
+    numberFormat = /^\s*-?[0-9]*\.?[0-9]+\s*$/;
     constructor(n) {
         super();
         if (arguments.length > 0) {
             this.init(n);
         }
-        this.numberFormat = /^\s*-?[0-9]*\.?[0-9]+\s*$/;
     }
     init(n) {
         this.num = typeof n === "string" ? this.parse(n) : Number(n);

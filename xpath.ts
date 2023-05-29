@@ -2516,14 +2516,15 @@ class XString extends Expression {
 // XNumber ///////////////////////////////////////////////////////////////////
 
 class XNumber extends Expression {
-	numberFormat: RegExp;
 	num: number;
+
+	numberFormat = /^\s*-?[0-9]*\.?[0-9]+\s*$/;
+
 	constructor(n) {
 		super();
 		if (arguments.length > 0) {
 			this.init(n);
 		}
-		this.numberFormat = /^\s*-?[0-9]*\.?[0-9]+\s*$/;
 	}
 
 	init(n) {
